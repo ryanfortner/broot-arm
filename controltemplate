@@ -1,0 +1,10 @@
+Package: broot
+Version: VTR
+Section: net
+Priority: optional
+Architecture: armhf
+Depends: bash
+Maintainer: Ryan Fortner <ryankfortner@gmail.com>
+Description: A new way to see and navigate directory trees
+Homepage: https://dystroy.org/broot/
+Bugs: https://github.com/Canop/broot/issues
