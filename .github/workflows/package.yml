@@ -27,16 +27,9 @@ jobs:
           mkdir -p broot-base/DEBIAN
           mkdir -p broot-base/usr/bin
           wget https://dystroy.org/broot/download/armv7-unknown-linux-gnueabihf/broot -O broot-base/usr/bin/broot
-          echo "Package: broot
-Version: ${version}
-Section: net
-Priority: optional
-Architecture: armhf
-Depends: bash
-Maintainer: Ryan Fortner <ryankfortner@gmail.com>
-Description: A new way to see and navigate directory trees
-Homepage: https://dystroy.org/broot/
-Bugs: https://github.com/Canop/broot/issues" > broot-base/DEBIAN/control
+          wget https://raw.githubusercontent.com/ryanfortner/broot-arm/master/controltemplate -O broot-base/DEBIAN/control
+          sed -i "s/VTR/$version/" broot-base/DEBIAN/control
+          chmod 755 broot-base/DEBIAN/*
           dpkg-deb -b ./broot-base broot_"$version"_armhf.deb
 
       - name: Upload
