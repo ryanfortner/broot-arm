@@ -32,6 +32,15 @@ jobs:
           chmod 755 broot-base/DEBIAN/*
           dpkg-deb -b ./broot-base broot_"$version"_armhf.deb
 
+      - name: Create symlinks
+        run: |
+          rm -rf ./broot*/
+          export version=$(curl -s https://api.github.com/repos/Canop/broot/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")' | tr -d 'v')
+          export current=$(cat current.txt)
+          [ "$current" == "$version" ] && exit 0
+          rm -rf ./*latest.deb
+          ln -fs "$(find . -name '*armhf.deb' -type f -printf '%P\n' -quit)" broot-armhf-latest.deb
+
       - name: Upload
         run: |
           rm -rf ./broot*/
