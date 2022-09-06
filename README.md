@@ -1,5 +1,5 @@
 # broot-arm
-ARM packages of [Broot](https://github.com/Canop/broot), featured in [Raspbian Addons](https://raspbian-addons.org)
+ARM deb packages of [Broot](https://github.com/Canop/broot), featured in [Raspbian Addons](https://raspbian-addons.org)
 
 Install the latest .deb file in the root of this repo.
 
